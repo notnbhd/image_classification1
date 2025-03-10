@@ -30,15 +30,16 @@ def image_classify(img):
     net = NeuralNet()
     net.load_state_dict(torch.load('trained_net.pth'))
 
+
     class_names = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
     transform = transforms.Compose([
         transforms.Resize((32, 32)),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-        transforms.ToTensor()
+        transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
 
-    img = transforms(img)
+    img = transform(img)
     img = img.unsqueeze(0)
 
     net.eval()

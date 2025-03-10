@@ -14,15 +14,15 @@ def index():
 @app.route('/upload', methods=['POST'])
 
 def upload():
-    if 'image' not in request.file:
+    if 'image' not in request.files:
         return 'No file passed'
     
-    file = request.file['image']
+    file = request.files['image']
 
     if file:
         img = Image.open(io.BytesIO(file.read()))
 
-        return f'Classification: {image_classify(img)}'
+        return f'Prediction: {image_classify(img)}'
     
 
 if __name__ == '__main__':
