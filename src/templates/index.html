@@ -2,11 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <Title>Upload Image...</Title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .upload-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-upload {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-upload:hover {
+            background-color: #45a049;
+        }
+        .file-input {
+            margin: 10px 0;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Upload Image...</button>
-    </form>
+    <div class="upload-container">
+        <h1>Image Classification</h1>
+        <p>Upload an image to classify it as plane, car, bird, cat, deer, dog, frog, horse, ship or truck.</p>
+        
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image-upload">Select image to classify:</label>
+                <input id="image-upload" class="file-input" type="file" name="image" accept="image/*" required>
+            </div>
+            <button class="btn-upload" type="submit">Classify Image</button>
+        </form>
+    </div>
 </body>
+</html>
