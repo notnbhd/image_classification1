@@ -69,8 +69,7 @@ class NeuralNet(nn.Module):
 
 def image_classify(img):
     net = NeuralNet()
-    os.chdir('./src')
-    net.load_state_dict(torch.load('./trained_net.pth'))
+    net.load_state_dict(torch.load('./src/trained_net.pth'))
 
 
     class_names = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
